@@ -1,0 +1,152 @@
+/* Configurações Globais */
+:root {
+    --bg-color: #0a0a0a;
+    --container-bg: #161616;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-color: #ffffff;
+    --border-color: #333333;
+    --input-bg: #222222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal */
+.container {
+    background-color: var(--container-bg);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Formulário e Controles */
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+input[type="range"] {
+    width: 100%;
+    appearance: none;
+    background: var(--input-bg);
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+output {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Resultado da Senha */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--input-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    word-break: break-all; /* Garante que a frase quebre linha no celular */
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 80%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .options-group {
+        grid-template-columns: 1fr; /* No celular, os filtros ficam um embaixo do outro */
+    }
+    
+    button {
+        padding: 15px; /* Botão maior para ser mais fácil de clicar com o dedo */
+    }
+}

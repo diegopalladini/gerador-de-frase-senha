@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gerador de frases-senha</title>
+</head>
+<body>
+    <div class="container">
+        <h1>frase-senha</h1>
+        <p>Uma frase-senha (passphrase) com 4 palavras aleatórias é até <strong>10.000% mais difícil de ser hackeada</strong> do que uma senha comum de 8 caracteres com símbolos. Enquanto computadores levam milênios para adivinhar frases comuns, humanos as memorizam com <strong>60% mais facilidade</strong> por serem visuais e familiares.</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="quantidade">Quantas palavras? (3 a 8)</label>
+                <input type="range" id="quantidade" name="quantidade" value="{{ qtd_selecionada }}" min="3" max="8" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ qtd_selecionada }}</output>
+            </div>
+            <button type="submit">Gerar frase-senha</button>
+        </form>
+        {% if frase %}
+            <div class="result-box">
+                <code>{{ frase }}</code>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
