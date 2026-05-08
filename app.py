@@ -5,10 +5,12 @@ app = Flask(__name__)
 
 
 def carregar_palavras():
+    lista = []
     with open('palavras.txt', 'r', encoding='utf-8') as f:
-
-        # Lê o arquivo, remove espaços em branco e ignora linhas vazias:
-        lista = [linha.strip() for linha in f.readlines() if linha.strip()]
+        for linha in f.readlines():
+            palavra_limpa = linha.strip()
+            if palavra_limpa:
+                lista.append(palavra_limpa)  
     return lista
 
 PALAVRAS = carregar_palavras()  # Função para carregar palavras de um arquivo ou definir uma lista fixa
