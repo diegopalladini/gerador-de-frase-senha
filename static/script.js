@@ -9,7 +9,7 @@ function atualizarCombinacoes() {
     let texto = "";
 
     if (qtd == 3) {
-        texto = "457 Bilhões";
+        texto = "457 Bilhões de combinações. Equivalente a uma senha complexa de 8 caracteres sem símbolos.";
     } else if (qtd == 4) {
         texto = "3,5 Quadrilhões de combinações. Equivalente a uma senha complexa de 8 caracteres com símbolos.";
     } else if (qtd == 5) {
