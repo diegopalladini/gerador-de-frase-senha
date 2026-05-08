@@ -9,13 +9,18 @@
 <body>
     <div class="container">
         <h1>frase-senha</h1>
-        <p>Uma frase-senha (passphrase) com 4 palavras aleatórias é até <strong>10.000% mais difícil de ser hackeada</strong> do que uma senha comum de 8 caracteres com símbolos. Enquanto computadores levam milênios para adivinhar frases comuns, humanos as memorizam com <strong>60% mais facilidade</strong> por serem visuais e familiares.</p>
+        <p>Uma frase-senha (passphrase) com palavras aleatórias é <strong>muito mais difícil de ser hackeada</strong> do que uma senha comum de 8 caracteres com símbolos. Enquanto computadores levam milênios para adivinhar frases comuns, humanos as memorizam com <strong>mais facilidade</strong> por serem visuais e familiares.</p>
 
         <form method="POST">
             <div class="form-group">
                 <label for="quantidade">Quantas palavras? (3 a 8)</label>
-                <input type="range" id="quantidade" name="quantidade" value="{{ qtd_selecionada }}" min="3" max="8" oninput="this.nextElementSibling.value = this.value">
+                <input type="range" id="quantidade" name="quantidade" value="{{ qtd_selecionada }}" min="3" max="8" oninput="this.nextElementSibling.value = this.value; atualizarCombinacoes()">
                 <output>{{ qtd_selecionada }}</output>
+            </div>
+            <div class="stats-container">
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">
+                    Segurança estimada: <span id="contador-combinacoes" style="color: #4CAF50; font-weight: bold;">3,5 Quadrilhões</span>
+                </p>
             </div>
             <button type="submit">Gerar frase-senha</button>
         </form>
@@ -25,5 +30,13 @@
             </div>
         {% endif %}
     </div>
+
+    <div class="faq">
+        <h2>Por que frases-senha são mais seguras?</h2>
+        <p>Muitas pessoas acreditam que uma senha segura precisa ser um emaranhado de símbolos como @H7!z#2p9. Na verdade, para um computador, <strong>o que importa não é a "estranheza" dos caracteres, mas a matemática das combinações</strong>. Uma senha de 8 caracteres complexos possui cerca de 6 quadrilhões de combinações (um número que supercomputadores modernos conseguem testar em pouco tempo).</p>
+        <p>Porém, ao usar o método de frase-senha (passphrase), <strong>você troca a complexidade que confunde humanos pela extensão que derrota máquinas</strong>. Uma frase com 4 ou 5 palavras aleatórias cria um espaço de busca tão vasto que levaria milênios para ser quebrado por força bruta. Enquanto humanos memorizam frases visuais com 60% mais facilidade, algoritmos de invasão se perdem na imensidão de possibilidades geradas pela escolha aleatória de palavras.</p>
+        <p>No fim das contas, você obtém uma senha que é impossível de esquecer e virtualmente invencível para um hacker, unindo o melhor da psicologia humana com o rigor da criptografia moderna.</p>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
